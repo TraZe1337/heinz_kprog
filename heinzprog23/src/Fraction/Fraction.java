@@ -33,6 +33,7 @@ public final class Fraction extends Number implements Comparable<Fraction>, Clon
 
 
   public Fraction(BigInteger num, BigInteger denom) {
+
     switch (denom.signum()) {
       case 0:
         num = ZERO;

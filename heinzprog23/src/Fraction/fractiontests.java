@@ -42,25 +42,26 @@ public class fractiontests {
 
   /**
    * Testing the subtract() Method.
+   * 1. Testing if the Value of subtracting 2 Fractions with each other equals our expected solution.
    */
   @Test
   public void TestSubtract() {
-    Fraction j = new Fraction(5653, 7735);
-    assertEquals(j.intValue(), i[1].subtract(i[0]).intValue());
+    assertEquals(new Fraction(5653, 7735).intValue(), i[1].subtract(i[0]).intValue());
   }
 
   /**
    * Testing the multiply() Method.
+   * 1. Testing if the Value of multiplying 2 Fractions with each other equals our expected solution.
    */
   @Test
   public void TestMultiply() {
-    Fraction s = new Fraction(6, 35);
-    assertEquals(s.intValue(), i[0].multiply(i[1]).intValue());
+    assertEquals(new Fraction(6, 35).intValue(), i[0].multiply(i[1]).intValue());
 
   }
 
   /**
    * Testing the divide() Method.
+   * 1. Testing if the Value of dividing 2 Fractions with each other equals our expected solution.
    */
   @Test
   public void TestDivide() {
@@ -70,17 +71,14 @@ public class fractiontests {
 
   /**
    * Testing the isInteger() Method.
+   * 1. Testing if the Value of a Fraction is a Integer or not.
    */
   @Test
   public void IsIntegerTest() {
-    Fraction j = new Fraction("4124125134124124", "5235235235235235235");
-    Fraction s = new Fraction(12, 3);
-
-    Fraction x = new Fraction(13, 3);
-    assertFalse(j.isInteger());
     assertFalse(i[1].isInteger());
-    assertTrue(s.isInteger());
-    assertFalse(x.isInteger());
+    assertFalse(new Fraction("4124125134124124", "5235235235235235235").isInteger());
+    assertTrue(new Fraction(12, 3).isInteger());
+    assertFalse(new Fraction(13, 3).isInteger());
   }
 
   /**
@@ -96,16 +94,18 @@ public class fractiontests {
   }
 
   /**
-   * Testing the add() Method.
-   * 1. Testing the function of the add() Method.
+   * Testing the getNumerator() Method.
+   * 1. Testing the function of the getNumerator() Method.
    */
   @Test
   public void NumeratorTest() {
     assertEquals(78, i[1].getNumerator().intValue());
+
   }
 
   /**
-   * Testing the add() Method.
+   * Testing the getDenominator() Method.
+   * 1. Testing the function of the getDenominator() Method.
    */
   @Test
   public void DenominatorTest() {
@@ -113,16 +113,12 @@ public class fractiontests {
   }
 
   /**
-   * Testing the add() Method.
+   * Testing the longValue() Method.
    */
   @Test
   public void longValueTest() {
-    long a = 241414144;
-    int b = 241414144;
-    assertNull(null);
-    //,i[0].longValue()
-    System.out.println(
-        i[1].getNumerator() + "  /  " + i[1].getDenominator() + " - " + i[1].longValue());
+
+
   }
 
 
