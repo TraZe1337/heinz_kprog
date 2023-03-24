@@ -8,6 +8,9 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Arrays;
 
+/**
+ * @author Filippo Fiorenza, Stefan Janke, Tarik Kalkan
+ */
 
 public final class Fraction extends Number implements Comparable<Fraction>, Cloneable,
     Serializable {

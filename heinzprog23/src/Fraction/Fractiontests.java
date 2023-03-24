@@ -9,6 +9,10 @@ import static org.junit.jupiter.api.Assertions.assertInstanceOf;
 
 import org.junit.Test;
 
+/**
+ * @author Filippo Fiorenza, Stefan Janke, Tarik Kalkan
+ */
+
 public class Fractiontests {
 
   Fraction[] i = {
