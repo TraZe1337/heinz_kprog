@@ -33,7 +33,8 @@ public final class Fraction extends Number implements Comparable<Fraction>, Clon
 
 
   public Fraction(BigInteger num, BigInteger denom) {
-
+    numerator = num;
+    denominator = denom;
     switch (denom.signum()) {
       case 0:
         num = ZERO;
@@ -46,8 +47,8 @@ public final class Fraction extends Number implements Comparable<Fraction>, Clon
         num = num.divide(gcd);
         denom = denom.divide(gcd);
     }
-    numerator = num;
-    denominator = denom;
+    //numerator = num;
+    //denominator = denom;
   }
 
   public Fraction(long numerator, long denominator) {
@@ -82,6 +83,10 @@ public final class Fraction extends Number implements Comparable<Fraction>, Clon
   }
 
   public Fraction divide(Fraction r) {
+
+    if(r.getDenominator().intValue() == 0){
+      throw new IllegalArgumentException("Dont divide by 0");
+    }
     return new Fraction(this.numerator.multiply(r.denominator),
         this.denominator.multiply(r.numerator));
   }
