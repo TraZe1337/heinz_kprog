@@ -12,7 +12,7 @@ import java.util.Arrays;
  * @author Filippo Fiorenza, Stefan Janke, Tarik Kalkan
  */
 
-public final class Fraction extends Number implements Comparable<Fraction>, Cloneable,
+public final class Fraction extends Number implements Comparable<Fraction>,
     Serializable {
 
   public static final long serialVersionUID = -5403983242734219454L;
