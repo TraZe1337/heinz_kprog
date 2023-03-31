@@ -3,6 +3,8 @@ package AWT;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class Rainbow extends Frame implements ActionListener {
 
@@ -10,12 +12,14 @@ public class Rainbow extends Frame implements ActionListener {
 
     public static void main(String[] args) {
         Rainbow frm = new Rainbow();
-        frm.setSize(800, 100);
+        frm.setSize(500, 500);
         frm.setVisible(true);
     }
 
     public Rainbow() {
         super();
+        WindowQuitter wquit = new WindowQuitter();
+        this.addWindowListener( wquit );
         setTitle("Rainbow");
         setLayout(new FlowLayout());
         b.addActionListener(this);
@@ -24,36 +28,53 @@ public class Rainbow extends Frame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        Rainbowroad road = new Rainbowroad();
-        road.run();
+        Thread road = new Thread(new Rainbowroad());
+        road.start();
     }
-}
+    class Rainbowroad extends Frame implements Runnable {
 
-class Rainbowroad extends Frame implements Runnable {
+        Color[] colors = {Color.black, Color.blue, Color.cyan, Color.GRAY, Color.green, Color.magenta, Color.orange,
+                Color.pink, Color.red, Color.white, Color.yellow};
 
-    Color[] colors = {Color.black, Color.blue, Color.cyan, Color.GRAY, Color.green, Color.magenta, Color.orange,
-            Color.pink, Color.red, Color.white, Color.yellow};
+        int col = 0;
+        public Rainbowroad() {
+            super();
+            WindowQuitter wquit = new WindowQuitter();
+            this.addWindowListener( wquit );
+            this.setSize(400, 400);
+            setTitle("glow");
+            setLayout(new FlowLayout());
+            setVisible(true);
 
-    int col = 0;
-    public Rainbowroad() {
-    }
 
-    public void run() {
-        this.setSize(400, 400);
-        setBackground(Color.black);
-        setVisible(true);
-        int i = 0;
-        setBackground(colors[col]);
-        col = (col + 1) % colors.length;
-        repaint();
-        while (true) {
-            setBackground(colors[i]);
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException ie) {
-                Thread.currentThread().interrupt();
-            }
         }
 
+        @Override
+        public void run() {
+            int i = 0;
+            while (true) {
+                setBackground(colors[col]);
+                col = (col + i) % colors.length;
+                i ++;
+                repaint();
+                setBackground(colors[i]);
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException ie) {
+                    Thread.currentThread().interrupt();
+                }
+                if(i == 10){
+                    i = 0;
+                }
+            }
+
+
+        }
     }
+    static class WindowQuitter extends WindowAdapter {
+        public void windowClosing(WindowEvent e) {
+            System.exit(0);
+        }
+    }
+
 }
