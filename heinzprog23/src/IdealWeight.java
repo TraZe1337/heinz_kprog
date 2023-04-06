@@ -1,8 +1,18 @@
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
+import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.BoxLayout;
+import javax.swing.ButtonGroup;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JTextField;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
-public class IdealWeight extends JFrame { // sollte zusätzlich ActionListener sein
+public class IdealWeight extends JFrame implements ActionListener {
+
   JRadioButton genderM, genderF; // Knöpfe für Geschlecht
   ButtonGroup genderGroup; // ... dazu Knopfgruppe
   JPanel genderPanel; // ... dazu Panel
@@ -10,8 +20,9 @@ public class IdealWeight extends JFrame { // sollte zusätzlich ActionListener s
   ButtonGroup heightGroup; // ... Gruppe
   JPanel heightPanel; // ... Panel
   JTextField resultText; // Textfeld für Ergebnis
-  JLabel resultLabl; // ... dazu Label
+  JLabel resultLabel; // ... dazu Label
   JPanel resultPanel; // ... dazu Panel
+  int height;
 
   public IdealWeight() { // Konstruktor
     setTitle("Your Ideal Weight"); // Fenstertitel
@@ -19,7 +30,11 @@ public class IdealWeight extends JFrame { // sollte zusätzlich ActionListener s
 
     // Geschlechts-Gruppe
     genderM = new JRadioButton("Male", true); // Knopf M. selekt.
+    genderM.setName("male");
+    genderM.addActionListener(this);
     genderF = new JRadioButton("Female", false); // Knopf F. nicht s.
+    genderF.setName("female");
+    genderF.addActionListener(this);
     genderGroup = new ButtonGroup(); // Gruppe def.
     genderGroup.add(genderM);
     genderGroup.add(genderF); // Kn. hinzufuegen
@@ -31,10 +46,20 @@ public class IdealWeight extends JFrame { // sollte zusätzlich ActionListener s
     genderPanel.add(genderF); // Knoepfe hinzuf.
     // Hoehen-Gruppe
     heightA = new JRadioButton("60 to 64 inches", true); // ... selektiert
+    heightA.setName("heightA");
+    heightA.addActionListener(this);
     heightB = new JRadioButton("64 to 68 inches", false); // nicht selektiert
+    heightB.setName("heightB");
+    heightB.addActionListener(this);
     heightC = new JRadioButton("68 to 72 inches", false); // ...
+    heightC.setName("heightC");
+    heightC.addActionListener(this);
     heightD = new JRadioButton("72 to 76 inches", false); // ...
+    heightD.setName("heightD");
+    heightD.addActionListener(this);
     heightE = new JRadioButton("76 to 80 inches", false); // ...
+    heightE.setName("heightE");
+    heightE.addActionListener(this);
     heightGroup = new ButtonGroup(); // Gruppe def.
     heightGroup.add(heightA);
     heightGroup.add(heightB); // Kn.
@@ -53,9 +78,10 @@ public class IdealWeight extends JFrame { // sollte zusätzlich ActionListener s
     // Ergebnis-Panel
     resultText = new JTextField(7); // Textfeld
     resultText.setEditable(false); // ... nur Ausgabe
-    resultLabl = new JLabel("Ideal Weight"); // Label def.
+    resultText.addActionListener(this);
+    resultLabel = new JLabel("Ideal Weight"); // Label def.
     resultPanel = new JPanel(); // Panel def.
-    resultPanel.add(resultLabl); // Label hinzufuegen
+    resultPanel.add(resultLabel); // Label hinzufuegen
     resultPanel.add(resultText); // Textfeld ...
     // Gesamt-Fenster
     getContentPane().setLayout(new BorderLayout()); // Layout: Border
@@ -69,4 +95,68 @@ public class IdealWeight extends JFrame { // sollte zusätzlich ActionListener s
     weightApp.setSize(250, 225);
     weightApp.setVisible(true);
   }
+
+  @Override
+  public void actionPerformed(ActionEvent e) {
+    JRadioButton data;
+    data = (JRadioButton) e.getSource();
+
+    switch (data.getName()) {
+      case "heightA" -> {
+
+      }
+    }
+
+      switch (data.getName()) {
+        case "heightA" -> {
+          height = 62;
+          if (data.getName().equals("male")) {
+            resultText.setText(Math.pow(height, 2) / 30 + "");
+          }
+          if(data.getName().equals("female")) {
+            resultText.setText(Math.pow(height, 2) / 28 + "");
+          }
+        }
+        case "heightB" -> {
+          height = 66;
+          if (data.getName().equals("male")) {
+            resultText.setText(Math.pow(height, 2) / 30 + "");
+          }
+          if(data.getName().equals("female")) {
+            resultText.setText(Math.pow(height, 2) / 28 + "");
+          }
+        }
+        case "heightC" -> {
+          height = 70;
+          if (data.getName().equals("male")) {
+            resultText.setText(Math.pow(height, 2) / 30 + "");
+          }
+          if(data.getName().equals("female")) {
+            resultText.setText(Math.pow(height, 2) / 28 + "");
+          }
+        }
+        case "heightD" -> {
+          height = 74;
+          if (data.getName().equals("male")) {
+            resultText.setText(Math.pow(height, 2) / 30 + "");
+          }
+          if(data.getName().equals("female")) {
+            resultText.setText(Math.pow(height, 2) / 28 + "");
+          }
+        }
+        case "heightE" -> {
+          height = 78;
+          if (data.getName().equals("male")) {
+            resultText.setText(Math.pow(height, 2) / 30 + "");
+          }
+          if(data.getName().equals("female")) {
+            resultText.setText(Math.pow(height, 2) / 28 + "");
+          }
+        }
+      }
+    }
+    public void calculateWeight() {
+
+    }
+
 }
