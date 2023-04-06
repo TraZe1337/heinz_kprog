@@ -8,8 +8,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 
 public class IdealWeight extends JFrame implements ActionListener {
 
@@ -101,62 +99,63 @@ public class IdealWeight extends JFrame implements ActionListener {
     JRadioButton data;
     data = (JRadioButton) e.getSource();
 
-    switch (data.getName()) {
-      case "heightA" -> {
-
+  switch (data.getName()) {
+    case "heightA" -> {
+      height = 62;
+      if (genderM.isSelected()) {
+        calculateMale();
+      } else {
+        calculateFemale();
       }
     }
-
-      switch (data.getName()) {
-        case "heightA" -> {
-          height = 62;
-          if (data.getName().equals("male")) {
-            resultText.setText(Math.pow(height, 2) / 30 + "");
-          }
-          if(data.getName().equals("female")) {
-            resultText.setText(Math.pow(height, 2) / 28 + "");
-          }
-        }
-        case "heightB" -> {
-          height = 66;
-          if (data.getName().equals("male")) {
-            resultText.setText(Math.pow(height, 2) / 30 + "");
-          }
-          if(data.getName().equals("female")) {
-            resultText.setText(Math.pow(height, 2) / 28 + "");
-          }
-        }
-        case "heightC" -> {
-          height = 70;
-          if (data.getName().equals("male")) {
-            resultText.setText(Math.pow(height, 2) / 30 + "");
-          }
-          if(data.getName().equals("female")) {
-            resultText.setText(Math.pow(height, 2) / 28 + "");
-          }
-        }
-        case "heightD" -> {
-          height = 74;
-          if (data.getName().equals("male")) {
-            resultText.setText(Math.pow(height, 2) / 30 + "");
-          }
-          if(data.getName().equals("female")) {
-            resultText.setText(Math.pow(height, 2) / 28 + "");
-          }
-        }
-        case "heightE" -> {
-          height = 78;
-          if (data.getName().equals("male")) {
-            resultText.setText(Math.pow(height, 2) / 30 + "");
-          }
-          if(data.getName().equals("female")) {
-            resultText.setText(Math.pow(height, 2) / 28 + "");
-          }
-        }
+    case "heightB" -> {
+      height = 66;
+      if (genderM.isSelected()) {
+        calculateMale();
+      } else {
+        calculateFemale();
       }
     }
-    public void calculateWeight() {
-
+    case "heightC" -> {
+      height = 70;
+      if (genderM.isSelected()) {
+        calculateMale();
+      } else {
+        calculateFemale();
+      }
     }
+    case "heightD" -> {
+      height = 74;
+      if (genderM.isSelected()) {
+        calculateMale();
+      } else {
+        calculateFemale();
+      }
+    }
+    case "heightE" -> {
+      height = 78;
+      if (genderM.isSelected()) {
+        calculateMale();
+      } else {
+        calculateFemale();
+      }
+    }
+  }
+
+  switch (data.getName()) {
+    case "male" -> calculateMale();
+    case "female" -> calculateFemale();
+  }
 
 }
+public void calculateMale() {
+    double weightMale = (Math.pow(height, 2) / 30);
+    String weightMaleText = String.format("%.2f", weightMale);
+    resultText.setText(weightMaleText);
+}
+  public void calculateFemale() {
+    double weightFemale = (Math.pow(height, 2) / 28);
+    String weightFemaleText = String.format("%.2f", weightFemale);
+    resultText.setText(weightFemaleText);
+}
+  }
