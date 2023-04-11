@@ -9,7 +9,20 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
+
+/**
+ * Ideal Weight Programm that tells you how much you should weigh depending if your'e a women or men and your height.
+ *
+ *
+ * @author Stefan Janke 214 058
+ * @author Filippo Fiorenza 205 194
+ * @author Tarik Bugra Kalkan 205 302
+ */
+
+
 public class IdealWeight extends JFrame implements ActionListener {
+
+
 
   JRadioButton genderM, genderF; // Knöpfe für Geschlecht
   ButtonGroup genderGroup; // ... dazu Knopfgruppe
