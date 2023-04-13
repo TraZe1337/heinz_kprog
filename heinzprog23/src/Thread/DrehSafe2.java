@@ -27,6 +27,8 @@ public class DrehSafe2 extends JFrame implements ActionListener, Runnable {
         for (int i = 0; i < 10; i++) {
             buttons[i] = new JButton("" + i);
             buttons[i].addActionListener(this);
+            buttons[i].setOpaque(true);
+            buttons[i].setBorderPainted(false);
             buttons[i].setFont(new Font("Courier", Font.BOLD, 28));
         }
 
@@ -47,7 +49,7 @@ public class DrehSafe2 extends JFrame implements ActionListener, Runnable {
     }
 
     int s = 0;
-    int d = 9;
+    int d = 1;
     long sleeptime = 3000;
     //(8-2-2-4-7-2-5-3-0-1)
     //(0-1-2-3-4-5-6-7-8-9)

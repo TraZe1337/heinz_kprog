@@ -1,4 +1,4 @@
-package src;
+package MaxxiMax;
 
 /**
  * @author Tarik Kalkan

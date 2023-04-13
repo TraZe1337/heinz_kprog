@@ -1,4 +1,4 @@
-package src;
+package MaxxiMax;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;

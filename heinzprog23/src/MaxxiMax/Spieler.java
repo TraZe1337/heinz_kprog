@@ -1,6 +1,7 @@
-package src;
+package MaxxiMax;
 
 import java.util.List;
+
 /**
  * @author tarik kalkan
  * version 2 03.01.2023

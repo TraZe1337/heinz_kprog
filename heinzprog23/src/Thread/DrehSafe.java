@@ -35,6 +35,8 @@ public class DrehSafe extends JFrame implements ActionListener, Runnable {
         buttons = new JButton[10];
         for (int i = 0; i < 10; i++) {
             buttons[i] = new JButton("" + i);
+            buttons[i].setOpaque(true);
+            buttons[i].setBorderPainted(false);
             buttons[i].addActionListener(this);
             buttons[i].setName(" " + i);
         }
