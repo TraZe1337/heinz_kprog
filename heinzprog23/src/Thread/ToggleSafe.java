@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 
-public class DrehSafe3 extends JFrame implements ActionListener, Runnable {
+public class ToggleSafe extends JFrame implements ActionListener, Runnable {
 
     JButton[] buttons;
 
@@ -20,7 +20,7 @@ public class DrehSafe3 extends JFrame implements ActionListener, Runnable {
 
     }
 
-    public DrehSafe3(long sleeptime) {
+    public ToggleSafe(long sleeptime) {
         this.sleeptime = sleeptime;
     }
 
@@ -30,7 +30,7 @@ public class DrehSafe3 extends JFrame implements ActionListener, Runnable {
     //(8-5-2-9-6-3-0-7-4-1)
     //(0-1-2-3-4-5-6-7-8-9)
     public void actionPerformed(ActionEvent e) {
-        DrehSafe3 y = new DrehSafe3(sleeptime * 2 / 3);
+        ToggleSafe y = new ToggleSafe(sleeptime * 2 / 3);
         System.out.println(s);
         switch (Integer.parseInt(e.getActionCommand())) {
             case 0 -> {
@@ -188,7 +188,7 @@ public class DrehSafe3 extends JFrame implements ActionListener, Runnable {
 
     public static class SetupWindow extends JFrame {
         public SetupWindow() {
-            DrehSafe3 d =  new DrehSafe3(3000);
+            ToggleSafe d =  new ToggleSafe(3000);
             d.setup();
             d.setTitle("Main Safe!");
 
