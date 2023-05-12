@@ -11,6 +11,10 @@ import java.math.BigInteger;
 
 public class Inspector {
 
+  /**
+   * @author Filippo Fiorenza, Stefan Janke, Tarik Kalkan
+   */
+
   public static void main (String[] args){
     BufferedReader in = new BufferedReader (new InputStreamReader(
         new DataInputStream(System.in))); // zum Lesen von Eingaben
