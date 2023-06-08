@@ -16,17 +16,10 @@ public class EnvironmentView extends JFrame
 
     public static void main(String[] args) {
         Environment environment = new Environment();
-<<<<<<< HEAD
-        //TODO: Thread -> mehrere Instanzen - Samil
+        //TODO: Thread -> mehrere Instanzen - Samil // done
         //TODO: Farben ändern (ROT/Grün) - Stefan - done
         //TODO: Titel ändern - Stefan - done
         //TODO: Run -> Laufen - Stefan - done
-=======
-        //TODO: Thread -> mehrere Instanzen - Samil // done
-        //TODO: Farben ändern (ROT/Grün) - Stefan
-        //TODO: Titel ändern - Stefan
-        //TODO: Run -> Laufen - Stefan
->>>>>>> 52fa70fd4c0147ef91199daa162aa3da7707ed56
         //TODO: Zellen Tot zu lebendig machen mit Klick - Stefan
         //TODO: Modus Setzen: Zellenstatus switchen - Stefan - done
         //TODO: Modus Malen: sollen alle Zellen bei Überstreichen mit der Maus lebendig werden. - Filippo
@@ -182,11 +175,8 @@ public class EnvironmentView extends JFrame
         controls.add(pause);
         controls.add(reset);
         controls.add(randomize);
-<<<<<<< HEAD
         controls.add(setzen);
-=======
         controls.add(neuesFenster);
->>>>>>> 52fa70fd4c0147ef91199daa162aa3da7707ed56
         
         contents.add(controls, BorderLayout.SOUTH);
     }
