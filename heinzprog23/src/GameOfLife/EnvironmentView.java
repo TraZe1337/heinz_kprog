@@ -13,6 +13,20 @@ import javax.swing.event.*;
  */
 public class EnvironmentView extends JFrame
 {
+
+    public static void main(String[] args) {
+        Environment environment = new Environment();
+        //TODO: Thread -> mehrere Instanzen - Samil
+        //TODO: Farben ändern (ROT/Grün) - Stefan
+        //TODO: Titel ändern - Stefan
+        //TODO: Run -> Laufen - Stefan
+        //TODO: Zellen Tot zu lebendig machen mit Klick - Stefan
+        //TODO: Modus Setzen: Zellenstatus switchen - Stefan
+        //TODO: Modus Malen: sollen alle Zellen bei Überstreichen mit der Maus lebendig werden. - Filippo
+        //TODO: Pop-up: Farben ändern - Tarik
+        //TODO: Muster (Gleiter, ...) - Stefan
+    }
+
     // The longest delay for the animation, in milliseconds.
     private static final int LONGEST_DELAY = 1000;
     // Colors for the different cell states.
