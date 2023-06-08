@@ -16,7 +16,7 @@ public class EnvironmentView extends JFrame
 
     public static void main(String[] args) {
         Environment environment = new Environment();
-        //TODO: Thread -> mehrere Instanzen - Samil
+        //TODO: Thread -> mehrere Instanzen - Samil // done
         //TODO: Farben ändern (ROT/Grün) - Stefan
         //TODO: Titel ändern - Stefan
         //TODO: Run -> Laufen - Stefan
@@ -119,6 +119,13 @@ public class EnvironmentView extends JFrame
             env.step();
             showCells();
         });
+
+        //neues Fenster
+        final JButton neuesFenster = new JButton("neues Fenster öffnen");
+        neuesFenster.addActionListener( e ->{
+                Environment clone = new Environment();
+
+        });
         
         // Pause the animation.
         final JButton pause = new JButton("Pause");
@@ -160,6 +167,7 @@ public class EnvironmentView extends JFrame
         controls.add(pause);
         controls.add(reset);
         controls.add(randomize);
+        controls.add(neuesFenster);
         
         contents.add(controls, BorderLayout.SOUTH);
     }
