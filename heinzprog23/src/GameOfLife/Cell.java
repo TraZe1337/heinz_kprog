@@ -1,17 +1,11 @@
 package GameOfLife;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.*;
+import javax.swing.JButton;
 
-/**
- * A cell in a 2D cellular automaton.
- * The cell has multiple possible states.
- * This is an implementation of the rules for Brian's Brain.
- * @see https://en.wikipedia.org/wiki/Brian%27s_Brain
- * 
- * @author David J. Barnes and Michael Kölling
- * @version  2016.02.29
- */
-public class Cell
+public class Cell extends JButton implements ActionListener
 {
     // The possible states.
     public static final int ALIVE = 0, DEAD = 1;
@@ -41,12 +35,12 @@ public class Cell
         neighbors = new Cell[0];
     }
 
-    /**
-     * Determine this cell's next state, based on the
-     * state of its neighbors.
-     * This is an implementation of the rules for Brian's Brain.
-     * @return The next state.
-     */
+/**
+ * Determine this cell's next state, based on the
+ * state of its neighbors.
+ * This is an implementation of the rules for Brian's Brain.
+ * @return The next state.
+ */
     public int getNextState()
     {
         int aliveCount = 0;
@@ -93,11 +87,19 @@ public class Cell
 
     /**
      * Set the state of this cell.
-     * @param The state.
+     * @param state;
      */
     public void setState(int state)
     {
         this.state = state;
-    }   
+    }
 
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(getState() == Cell.DEAD){
+            setState(Cell.ALIVE);
+        }
+    }
 }
+
+

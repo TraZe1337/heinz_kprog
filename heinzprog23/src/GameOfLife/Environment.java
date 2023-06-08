@@ -79,7 +79,7 @@ public class Environment
             }
         }
     }
-    
+
     /**
      * Generate a random setup.
      */
@@ -91,6 +91,20 @@ public class Environment
         for(int row = 0; row < numRows; row++) {
             for(int col = 0; col < numCols; col++) {
                 setCellState(row, col, rand.nextInt(Cell.NUM_STATES));
+            }
+        }
+    }
+
+    public void set(){
+        int numRows = cells.length;
+        int numCols = cells[0].length;
+        for(int row = 0; row < numRows; row++) {
+            for(int col = 0; col < numCols; col++) {
+                if (cells[row][col].getState()== Cell.ALIVE){
+                    setCellState(row, col, Cell.DEAD);
+                } else{
+                    setCellState(row, col, Cell.ALIVE);
+                }
             }
         }
     }

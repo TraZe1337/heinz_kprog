@@ -17,11 +17,11 @@ public class EnvironmentView extends JFrame
     public static void main(String[] args) {
         Environment environment = new Environment();
         //TODO: Thread -> mehrere Instanzen - Samil
-        //TODO: Farben ändern (ROT/Grün) - Stefan
-        //TODO: Titel ändern - Stefan
-        //TODO: Run -> Laufen - Stefan
+        //TODO: Farben ändern (ROT/Grün) - Stefan - done
+        //TODO: Titel ändern - Stefan - done
+        //TODO: Run -> Laufen - Stefan - done
         //TODO: Zellen Tot zu lebendig machen mit Klick - Stefan
-        //TODO: Modus Setzen: Zellenstatus switchen - Stefan
+        //TODO: Modus Setzen: Zellenstatus switchen - Stefan - done
         //TODO: Modus Malen: sollen alle Zellen bei Überstreichen mit der Maus lebendig werden. - Filippo
         //TODO: Pop-up: Farben ändern - Tarik
         //TODO: Muster (Gleiter, ...) - Stefan
@@ -31,9 +31,9 @@ public class EnvironmentView extends JFrame
     private static final int LONGEST_DELAY = 1000;
     // Colors for the different cell states.
     private static final Color[] colors = {
-        Color.WHITE, // Alive
-        new Color(68, 100, 129), // Dead
-        new Color(204, 196, 72),  // Dying
+        new Color(252, 10, 10), // Alive
+        new Color(23, 227, 0), // Dead
+        new Color(252, 10, 10),  // Dying
     };
     
     private GridView view;
@@ -47,7 +47,7 @@ public class EnvironmentView extends JFrame
      */
     public EnvironmentView(Environment env, int rows, int cols)
     {
-        super("2D Cellular Automaton");
+        super("Game of Life");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocation(20, 20);
         this.env = env;
@@ -100,7 +100,7 @@ public class EnvironmentView extends JFrame
     private void setupControls()
     {
         // Continuous running.
-        final JButton run = new JButton("Run");
+        final JButton run = new JButton("Laufen");
         run.addActionListener(e -> {
             if(!running) {
                 running = true;
@@ -139,6 +139,14 @@ public class EnvironmentView extends JFrame
             env.randomize();
             showCells();
         });
+
+        // Switch Cells environment.
+        final JButton setzen = new JButton("Setzen");
+        setzen.addActionListener(e -> {
+            running = false;
+            env.set();
+            showCells();
+        });
         
         Container contents = getContentPane();
         
@@ -160,6 +168,7 @@ public class EnvironmentView extends JFrame
         controls.add(pause);
         controls.add(reset);
         controls.add(randomize);
+        controls.add(setzen);
         
         contents.add(controls, BorderLayout.SOUTH);
     }
