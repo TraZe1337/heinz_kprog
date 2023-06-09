@@ -19,11 +19,11 @@ public class EnvironmentView extends JFrame
         Environment environment = new Environment();
         //TODO: counter in title rein - Samil //done
         //TODO: Thread -> mehrere Instanzen - Samil // done
-        //TODO: Farben ändern (ROT/Grün) - Stefan - done
-        //TODO: Titel ändern - Stefan - done
-        //TODO: Run -> Laufen - Stefan - done
+        //TODO: Farben ändern (ROT/Grün) - Stefan // done
+        //TODO: Titel ändern - Stefan // done
+        //TODO: Run -> Laufen - Stefan // done
         //TODO: Zellen Tot zu lebendig machen mit Klick - Stefan
-        //TODO: Modus Setzen: Zellenstatus switchen - Stefan - done
+        //TODO: Modus Setzen: Zellenstatus switchen - Stefan // done
         //TODO: Modus Malen: sollen alle Zellen bei Überstreichen mit der Maus lebendig werden. - Filippo
         //TODO: Pop-up: Farben ändern - Tarik
         //TODO: Muster (Gleiter, ...) - Stefan
@@ -43,17 +43,42 @@ public class EnvironmentView extends JFrame
     private boolean running;
     private int delay;
 
-    
+    JMenu[] menus = { new JMenu("Modus"), new JMenu("Geschwindigkeit"), new JMenu("Fenster"), new JMenu("Figuren") };
+    JMenuItem[] items = {
+            new JMenuItem("Laufen"), new JMenuItem("Pause"),
+            new JMenuItem("Reset"), new JMenuItem("Beenden"),
+            new JMenuItem("Rückgängig"), new JMenuItem("Widerrufen"),
+            new JMenuItem("Ausschneiden"), new JMenuItem("Kopieren"),
+            new JMenuItem("Einfügen"), new JMenuItem("Suchen"),
+            new JMenuItem("Ersetzen") };
+
+    ActionListener al = new ActionListener() { // AL als anonyme Klasse
+        public void actionPerformed(ActionEvent e){ // ... fuer alle MenuItems
+        }
+    };
+
     /**
      * Constructor for objects of class EnvironmentView
      * @param env
      */
     public EnvironmentView(Environment env, int rows, int cols)
     {
-
         super("Game of Life");
         windowcounter++;
         setTitle("Game of Life - Fenster " + windowcounter);
+        menus[0].setToolTipText("Operationen auf Dateien");
+        items[4].setToolTipText("Nimm letzten Befehl zurück");
+        for (int i = 0; i < items.length; i++) {
+            items[i].addActionListener(al);
+            menus[(i<4)?0:(i<9)?1:2].add(items[i]);
+        }
+        JMenuBar mb = new JMenuBar();
+        for (int i = 0; i < menus.length; i++)
+            mb.add (menus[i]); //
+        setJMenuBar (mb);
+        Container cp = getContentPane();
+        cp.setLayout(new FlowLayout());
+
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocation(20, 20);
         this.env = env;
