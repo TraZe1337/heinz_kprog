@@ -14,8 +14,10 @@ import javax.swing.event.*;
 public class EnvironmentView extends JFrame
 {
 
+
     public static void main(String[] args) {
         Environment environment = new Environment();
+        //TODO: counter in title rein - Samil //done
         //TODO: Thread -> mehrere Instanzen - Samil // done
         //TODO: Farben ändern (ROT/Grün) - Stefan - done
         //TODO: Titel ändern - Stefan - done
@@ -35,11 +37,12 @@ public class EnvironmentView extends JFrame
         new Color(23, 227, 0), // Dead
         new Color(252, 10, 10),  // Dying
     };
-    
+    private static int windowcounter=-1;
     private GridView view;
     private final Environment env;
     private boolean running;
     private int delay;
+
     
     /**
      * Constructor for objects of class EnvironmentView
@@ -47,7 +50,10 @@ public class EnvironmentView extends JFrame
      */
     public EnvironmentView(Environment env, int rows, int cols)
     {
+
         super("Game of Life");
+        windowcounter++;
+        setTitle("Game of Life - Fenster " + windowcounter);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocation(20, 20);
         this.env = env;
@@ -122,11 +128,12 @@ public class EnvironmentView extends JFrame
 
         //neues Fenster
         final JButton neuesFenster = new JButton("neues Fenster öffnen");
-        neuesFenster.addActionListener( e ->{
-                Environment clone = new Environment();
+        neuesFenster.addActionListener(e -> {
+            Environment clone = new Environment();
 
         });
-        
+
+
         // Pause the animation.
         final JButton pause = new JButton("Pause");
         pause.addActionListener(e -> running = false);
