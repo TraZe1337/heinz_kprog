@@ -2,15 +2,7 @@ package GameOfLife;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
-/**
- * A GUI for the environment, with runtime controls.
- * 
- * @author David J. Barnes and Michael Kölling
- * @version  2016.02.29
- */
 public class EnvironmentView extends JFrame
 {
 
@@ -47,16 +39,12 @@ public class EnvironmentView extends JFrame
     private JMenuItem[] items = {
             new JMenuItem("Laufen"), new JMenuItem("Pause"),
             new JMenuItem("Reset"), new JMenuItem("Random"),
+            new JMenuItem("Step"), new JMenuItem("Setzen"),
             new JMenuItem("Schneller"), new JMenuItem("Langsamer"),
             new JMenuItem("Clone"), new JMenuItem("Gleiter"),
             new JMenuItem("Tümmler"), new JMenuItem("Oktagon"),
             new JMenuItem("Segler1"), new JMenuItem("Segler2"),
             new JMenuItem("Segler3"),
-    };
-
-    ActionListener al = new ActionListener() { // AL als anonyme Klasse
-        public void actionPerformed(ActionEvent e) { // ... fuer alle MenuItems
-        }
     };
 
     /**
@@ -94,7 +82,7 @@ public class EnvironmentView extends JFrame
 
     private void setupMenu() {
         for (int i = 0; i < items.length; i++) {
-            menus[(i < 4) ? 0 : (i < 6) ? 1 : (i < 7) ? 2 : (i < 13) ? 3 : 4].add(items[i]); // if Teil -> (i<4), ? -> true Teil, : -> false Teil
+            menus[(i < 6) ? 0 : (i < 8) ? 1 : (i < 9) ? 2 : (i < 15) ? 3 : 4].add(items[i]); // if Teil -> (i<4), ? -> true Teil, : -> false Teil
         }
         JMenuBar mb = new JMenuBar();
         for (int i = 0; i < menus.length; i++)
@@ -142,15 +130,14 @@ public class EnvironmentView extends JFrame
         });
 
         // Single stepping.
-        final JButton step = new JButton("Step");
-        step.addActionListener(e -> {
+        items[4].addActionListener(e -> {
             running = false;
             env.step();
             showCells();
         });
 
         //neues Fenster
-        items[6].addActionListener(e -> {
+        items[8].addActionListener(e -> {
             Environment clone = new Environment();
         });
 
@@ -173,31 +160,27 @@ public class EnvironmentView extends JFrame
         });
 
         // Switch Cells environment.
-        final JButton setzen = new JButton("Setzen");
-        setzen.addActionListener(e -> {
+        items[5].addActionListener(e -> {
             running = false;
             env.set();
             showCells();
         });
 
-        Container contents = getContentPane();
         // More Speed
-        items[4].addActionListener(e -> {
+        items[6].addActionListener(e -> {
             delay -= 100;
         });
 
         //Less Speed
-        items[5].addActionListener(e -> {
+        items[7].addActionListener(e -> {
             delay += 100;
         });
 
-        // Place the button controls.
-        JPanel controls = new JPanel();
-        controls.add(step);
-        controls.add(setzen);
+        //Figur: Gleiter
+        items[9].addActionListener(e -> {
 
+        });
 
-        contents.add(controls, BorderLayout.SOUTH);
     }
 
     
