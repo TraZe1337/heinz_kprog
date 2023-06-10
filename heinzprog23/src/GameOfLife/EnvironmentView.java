@@ -7,11 +7,12 @@ import java.awt.event.ActionListener;
 
 /**
  * A GUI for the environment, with runtime controls.
- *
+ * 
  * @author David J. Barnes and Michael Kölling
- * @version 2016.02.29
+ * @version  2016.02.29
  */
-public class EnvironmentView extends JFrame {
+public class EnvironmentView extends JFrame
+{
 
 
     public static void main(String[] args) {
@@ -111,7 +112,7 @@ public class EnvironmentView extends JFrame {
         if (!isVisible()) {
             setVisible(true);
         }
-
+        
         view.preparePaint();
         for (int row = 0; row < cells.length; row++) {
             Cell[] cellRow = cells[row];
@@ -121,10 +122,10 @@ public class EnvironmentView extends JFrame {
                 view.drawMark(col, row, colors[state]);
             }
         }
-
+        
         view.repaint();
     }
-
+    
     /**
      * Set up the animation controls.
      */
@@ -199,7 +200,7 @@ public class EnvironmentView extends JFrame {
         contents.add(controls, BorderLayout.SOUTH);
     }
 
-
+    
     /**
      * Set the animation delay.
      *
