@@ -178,7 +178,16 @@ public class EnvironmentView extends JFrame
 
         //Figur: Gleiter
         items[9].addActionListener(e -> {
+            running = false;
+            env.gleiter();
+            showCells();
+        });
 
+        //Figur: Tümmler
+        items[10].addActionListener(e -> {
+            running = false;
+            env.tuemmler();
+            showCells();
         });
 
     }
