@@ -37,7 +37,7 @@ public class EnvironmentView extends JFrame
         new Color(23, 227, 0), // Dead
         new Color(252, 10, 10),  // Dying
     };
-    private static int windowcounter=-1;
+    private static int windowcounter=0;
     private GridView view;
     private final Environment env;
     private boolean running;
@@ -51,9 +51,8 @@ public class EnvironmentView extends JFrame
     public EnvironmentView(Environment env, int rows, int cols)
     {
 
-        super("Game of Life");
-        windowcounter++;
-        setTitle("Game of Life - Fenster " + windowcounter);
+        super("Game of Life"+" "+ ++windowcounter);
+
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocation(20, 20);
         this.env = env;
