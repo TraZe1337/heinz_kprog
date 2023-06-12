@@ -81,13 +81,7 @@ public class Environment
     }
 
     public void gleiter(){
-        int numRows = cells.length;
-        int numCols = cells[0].length;
-        for(int row = 0; row < numRows; row++) {
-            for(int col = 0; col < numCols; col++) {
-                setCellState(row, col, Cell.DEAD);
-            }
-        }
+        reset();
         setCellState(0,1,Cell.ALIVE);
         setCellState(1,2,Cell.ALIVE);
         setCellState(2,0,Cell.ALIVE);
@@ -98,11 +92,7 @@ public class Environment
     public void tuemmler(){
         int numRows = cells.length;
         int numCols = cells[0].length;
-        for(int row = 0; row < numRows; row++) {
-            for(int col = 0; col < numCols; col++) {
-                setCellState(row, col, Cell.DEAD);
-            }
-        }
+        reset();
         setCellState((numRows/2),(numCols/2)+2,Cell.ALIVE);
         setCellState((numRows/2),(numCols/2)+3,Cell.ALIVE);
         setCellState((numRows/2),(numCols/2)+5,Cell.ALIVE);
@@ -121,6 +111,84 @@ public class Environment
         setCellState((numRows/2)+3,(numCols/2)+8,Cell.ALIVE);
         setCellState((numRows/2)+4,(numCols/2)+1,Cell.ALIVE);
         setCellState((numRows/2)+4,(numCols/2)+7,Cell.ALIVE);
+    }
+
+    public void oktagon(){
+        int numRows = cells.length;
+        int numCols = cells[0].length;
+        reset();
+        setCellState((numRows/2),(numCols/2)+1,Cell.ALIVE);
+        setCellState((numRows/2),(numCols/2)+2,Cell.ALIVE);
+        setCellState((numRows/2),(numCols/2)+3,Cell.ALIVE);
+        setCellState((numRows/2),(numCols/2)+4,Cell.ALIVE);
+        setCellState((numRows/2)+1,(numCols/2),Cell.ALIVE);
+        setCellState((numRows/2)+1,(numCols/2)+2,Cell.ALIVE);
+        setCellState((numRows/2)+1,(numCols/2)+3,Cell.ALIVE);
+        setCellState((numRows/2)+1,(numCols/2)+5,Cell.ALIVE);
+        setCellState((numRows/2)+2,(numCols/2),Cell.ALIVE);
+        setCellState((numRows/2)+2,(numCols/2)+1,Cell.ALIVE);
+        setCellState((numRows/2)+2,(numCols/2)+4,Cell.ALIVE);
+        setCellState((numRows/2)+2,(numCols/2)+5,Cell.ALIVE);
+        setCellState((numRows/2)+3,(numCols/2),Cell.ALIVE);
+        setCellState((numRows/2)+3,(numCols/2)+1,Cell.ALIVE);
+        setCellState((numRows/2)+3,(numCols/2)+4,Cell.ALIVE);
+        setCellState((numRows/2)+3,(numCols/2)+5,Cell.ALIVE);
+        setCellState((numRows/2)+4,(numCols/2),Cell.ALIVE);
+        setCellState((numRows/2)+4,(numCols/2)+2,Cell.ALIVE);
+        setCellState((numRows/2)+4,(numCols/2)+3,Cell.ALIVE);
+        setCellState((numRows/2)+4,(numCols/2)+5,Cell.ALIVE);
+        setCellState((numRows/2)+5,(numCols/2)+1,Cell.ALIVE);
+        setCellState((numRows/2)+5,(numCols/2)+2,Cell.ALIVE);
+        setCellState((numRows/2)+5,(numCols/2)+3,Cell.ALIVE);
+        setCellState((numRows/2)+5,(numCols/2)+4,Cell.ALIVE);
+    }
+
+    public void segler1(){
+        int numRows = cells.length;
+        reset();
+        setCellState((numRows/2),1,Cell.ALIVE);
+        setCellState((numRows/2),2,Cell.ALIVE);
+        setCellState((numRows/2),3,Cell.ALIVE);
+        setCellState((numRows/2),4,Cell.ALIVE);
+        setCellState((numRows/2)+1,0,Cell.ALIVE);
+        setCellState((numRows/2)+1,4,Cell.ALIVE);
+        setCellState((numRows/2)+2,4,Cell.ALIVE);
+        setCellState((numRows/2)+3,0,Cell.ALIVE);
+        setCellState((numRows/2)+3,3,Cell.ALIVE);
+    }
+
+    public void segler2(){
+        int numRows = cells.length;
+        reset();
+        setCellState((numRows/2),1,Cell.ALIVE);
+        setCellState((numRows/2),2,Cell.ALIVE);
+        setCellState((numRows/2),3,Cell.ALIVE);
+        setCellState((numRows/2),4,Cell.ALIVE);
+        setCellState((numRows/2),5,Cell.ALIVE);
+        setCellState((numRows/2)+1,0,Cell.ALIVE);
+        setCellState((numRows/2)+1,5,Cell.ALIVE);
+        setCellState((numRows/2)+2,5,Cell.ALIVE);
+        setCellState((numRows/2)+3,0,Cell.ALIVE);
+        setCellState((numRows/2)+3,4,Cell.ALIVE);
+        setCellState((numRows/2)+4,2,Cell.ALIVE);
+    }
+
+    public void segler3(){
+        int numRows = cells.length;
+        reset();
+        setCellState((numRows/2),1,Cell.ALIVE);
+        setCellState((numRows/2),2,Cell.ALIVE);
+        setCellState((numRows/2),3,Cell.ALIVE);
+        setCellState((numRows/2),4,Cell.ALIVE);
+        setCellState((numRows/2),5,Cell.ALIVE);
+        setCellState((numRows/2),6,Cell.ALIVE);
+        setCellState((numRows/2)+1,0,Cell.ALIVE);
+        setCellState((numRows/2)+1,6,Cell.ALIVE);
+        setCellState((numRows/2)+2,6,Cell.ALIVE);
+        setCellState((numRows/2)+3,0,Cell.ALIVE);
+        setCellState((numRows/2)+3,5,Cell.ALIVE);
+        setCellState((numRows/2)+4,2,Cell.ALIVE);
+        setCellState((numRows/2)+4,3,Cell.ALIVE);
     }
 
     /**

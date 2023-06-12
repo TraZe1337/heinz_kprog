@@ -190,6 +190,34 @@ public class EnvironmentView extends JFrame
             showCells();
         });
 
+        //Figur: Oktagon
+        items[11].addActionListener(e -> {
+            running = false;
+            env.oktagon();
+            showCells();
+        });
+
+        //Figur: Segler1
+        items[12].addActionListener(e -> {
+            running = false;
+            env.segler1();
+            showCells();
+        });
+
+        //Figur: Segler2
+        items[13].addActionListener(e -> {
+            running = false;
+            env.segler2();
+            showCells();
+        });
+
+        //Figur: Segler3
+        items[14].addActionListener(e -> {
+            running = false;
+            env.segler3();
+            showCells();
+        });
+
     }
 
     
