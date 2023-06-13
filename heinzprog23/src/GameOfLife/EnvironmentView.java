@@ -14,7 +14,7 @@ public class EnvironmentView extends JFrame {
         //TODO: Farben ändern (ROT/Grün) - Stefan // done
         //TODO: Titel ändern - Stefan // done
         //TODO: Run -> Laufen - Stefan // done
-        //TODO: Zellen Tot zu lebendig machen mit Klick - Stefan
+        //TODO: Zellen Tot zu lebendig machen mit Klick - Stefan // done
         //TODO: Modus Setzen: Zellenstatus switchen - Stefan // done
         //TODO: Modus Malen: sollen alle Zellen bei Überstreichen mit der Maus lebendig werden. - Filippo
         //TODO: Pop-up: Farben ändern - Tarik // done
@@ -197,42 +197,36 @@ public class EnvironmentView extends JFrame {
 
         //Figur: Gleiter
         items[9].addActionListener(e -> {
-            running = false;
             env.gleiter();
             showCells();
         });
 
         //Figur: Tümmler
         items[10].addActionListener(e -> {
-            running = false;
             env.tuemmler();
             showCells();
         });
 
         //Figur: Oktagon
         items[11].addActionListener(e -> {
-            running = false;
             env.oktagon();
             showCells();
         });
 
         //Figur: Segler1
         items[12].addActionListener(e -> {
-            running = false;
             env.segler1();
             showCells();
         });
 
         //Figur: Segler2
         items[13].addActionListener(e -> {
-            running = false;
             env.segler2();
             showCells();
         });
 
         //Figur: Segler3
         items[14].addActionListener(e -> {
-            running = false;
             env.segler3();
             showCells();
         });
@@ -342,13 +336,7 @@ public class EnvironmentView extends JFrame {
             env.setCurrentColorForDead(Color.pink);
             showCells();
         });
-        // Mouse click on a cell.
-        /*view.addMouseListener(new MouseAdapter() {
-            public void mouseClicked(MouseEvent e) {
-                System.out.println("working");
-            }
-        });*/
-// Mouse click on a cell.
+
         view.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
                 int x = e.getX() / view.xScale;
@@ -359,7 +347,6 @@ public class EnvironmentView extends JFrame {
                     case 0 -> cells[y][x].setState(1);
                     case 1 -> cells[y][x].setState(0);
                 }
-
                 showCells();
             }
         });

@@ -16,8 +16,8 @@ public class Environment {
     // Default size for the environment.
     private static final int DEFAULT_ROWS = 50;
     private static final int DEFAULT_COLS = 50;
-    private Color currentColorForDead = Color.red;
-    private Color currentColorForAliveCells = Color.green;
+    private Color currentColorForDead = Color.WHITE;
+    private Color currentColorForAliveCells = Color.BLACK;
 
     // The grid of cells.
     private Cell[][] cells;
@@ -82,7 +82,6 @@ public class Environment {
     }
 
     public void gleiter() {
-        reset();
         setCellState(0, 1, Cell.ALIVE);
         setCellState(1, 2, Cell.ALIVE);
         setCellState(2, 0, Cell.ALIVE);
@@ -93,7 +92,6 @@ public class Environment {
     public void tuemmler() {
         int numRows = cells.length;
         int numCols = cells[0].length;
-        reset();
         setCellState((numRows / 2), (numCols / 2) + 2, Cell.ALIVE);
         setCellState((numRows / 2), (numCols / 2) + 3, Cell.ALIVE);
         setCellState((numRows / 2), (numCols / 2) + 5, Cell.ALIVE);
@@ -117,7 +115,6 @@ public class Environment {
     public void oktagon() {
         int numRows = cells.length;
         int numCols = cells[0].length;
-        reset();
         setCellState((numRows / 2), (numCols / 2) + 1, Cell.ALIVE);
         setCellState((numRows / 2), (numCols / 2) + 2, Cell.ALIVE);
         setCellState((numRows / 2), (numCols / 2) + 3, Cell.ALIVE);
@@ -146,7 +143,6 @@ public class Environment {
 
     public void segler1() {
         int numRows = cells.length;
-        reset();
         setCellState((numRows / 2), 1, Cell.ALIVE);
         setCellState((numRows / 2), 2, Cell.ALIVE);
         setCellState((numRows / 2), 3, Cell.ALIVE);
@@ -160,7 +156,7 @@ public class Environment {
 
     public void segler2() {
         int numRows = cells.length;
-        reset();
+
         setCellState((numRows / 2), 1, Cell.ALIVE);
         setCellState((numRows / 2), 2, Cell.ALIVE);
         setCellState((numRows / 2), 3, Cell.ALIVE);
@@ -176,7 +172,6 @@ public class Environment {
 
     public void segler3() {
         int numRows = cells.length;
-        reset();
         setCellState((numRows / 2), 1, Cell.ALIVE);
         setCellState((numRows / 2), 2, Cell.ALIVE);
         setCellState((numRows / 2), 3, Cell.ALIVE);
