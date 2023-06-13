@@ -7,52 +7,42 @@ import javax.swing.event.*;
 
 /**
  * A GUI for the environment, with runtime controls.
- * 
+ *
  * @author David J. Barnes and Michael Kölling
  * @version  2016.02.29
  */
-public class EnvironmentView extends JFrame
+public class EnvironmentView extends JInternalFrame
 {
-
-
-    public static void main(String[] args) {
-        Environment environment = new Environment();
-        //TODO: counter in title rein - Samil //done
-        //TODO: Thread -> mehrere Instanzen - Samil // done
-        //TODO: Farben ändern (ROT/Grün) - Stefan - done
-        //TODO: Titel ändern - Stefan - done
-        //TODO: Run -> Laufen - Stefan - done
-        //TODO: Zellen Tot zu lebendig machen mit Klick - Stefan
-        //TODO: Modus Setzen: Zellenstatus switchen - Stefan - done
-        //TODO: Modus Malen: sollen alle Zellen bei Überstreichen mit der Maus lebendig werden. - Filippo
-        //TODO: Pop-up: Farben ändern - Tarik
-        //TODO: Muster (Gleiter, ...) - Stefan
-    }
-
     // The longest delay for the animation, in milliseconds.
     private static final int LONGEST_DELAY = 1000;
     // Colors for the different cell states.
     private static final Color[] colors = {
-        new Color(252, 10, 10), // Alive
-        new Color(23, 227, 0), // Dead
-        new Color(252, 10, 10),  // Dying
+            new Color(252, 10, 10), // Alive
+            new Color(23, 227, 0), // Dead
+            new Color(252, 10, 10),  // Dying
     };
     private static int windowcounter=0;
     private GridView view;
     private final Environment env;
     private boolean running;
     private int delay;
+    DesktopBackground mydesk;
+    Environment e;
 
-    
     /**
      * Constructor for objects of class EnvironmentView
      * @param env
      */
+
+    public EnvironmentView(DesktopBackground dft){
+        this(  new Environment() , 50, 50 );
+        mydesk = dft; // Hauptfenster merken
+
+    }
     public EnvironmentView(Environment env, int rows, int cols)
     {
 
         super("Game of Life"+" "+ ++windowcounter);
-
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocation(20, 20);
         this.env = env;
@@ -75,7 +65,7 @@ public class EnvironmentView extends JFrame
         view = new GridView(rows, cols);
         contents.add(view, BorderLayout.CENTER);
     }
-    
+
     /**
      * Show the states of the cells.
      */
@@ -85,7 +75,7 @@ public class EnvironmentView extends JFrame
         if(!isVisible()) {
             setVisible(true);
         }
-        
+
         view.preparePaint();
         for(int row = 0; row < cells.length; row++) {
             Cell[] cellRow = cells[row];
@@ -95,10 +85,10 @@ public class EnvironmentView extends JFrame
                 view.drawMark(col, row, colors[state]);
             }
         }
-        
+
         view.repaint();
     }
-    
+
     /**
      * Set up the animation controls.
      */
@@ -116,7 +106,7 @@ public class EnvironmentView extends JFrame
                 }
             }
         });
-        
+
         // Single stepping.
         final JButton step = new JButton("Step");
         step.addActionListener(e -> {
@@ -136,7 +126,7 @@ public class EnvironmentView extends JFrame
         // Pause the animation.
         final JButton pause = new JButton("Pause");
         pause.addActionListener(e -> running = false);
-        
+
         // Reset of the environment
         final JButton reset = new JButton("Reset");
         reset.addActionListener(e -> {
@@ -144,7 +134,7 @@ public class EnvironmentView extends JFrame
             env.reset();
             showCells();
         });
-        
+
         // Randomize the environment.
         final JButton randomize = new JButton("Random");
         randomize.addActionListener(e -> {
@@ -160,9 +150,9 @@ public class EnvironmentView extends JFrame
             env.set();
             showCells();
         });
-        
+
         Container contents = getContentPane();
-        
+
         // A speed controller.
         final JSlider speedSlider = new JSlider(0, 100);
         speedSlider.addChangeListener(e -> {
@@ -173,7 +163,7 @@ public class EnvironmentView extends JFrame
         speedPanel.add(new JLabel("Animation Speed", SwingConstants.CENTER));
         speedPanel.add(speedSlider);
         contents.add(speedPanel, BorderLayout.NORTH);
-        
+
         // Place the button controls.
         JPanel controls = new JPanel();
         controls.add(run);
@@ -183,11 +173,11 @@ public class EnvironmentView extends JFrame
         controls.add(randomize);
         controls.add(setzen);
         controls.add(neuesFenster);
-        
+
         contents.add(controls, BorderLayout.SOUTH);
     }
 
-    
+
     /**
      * Set the animation delay.
      * @param speedPercentage (100-speedPercentage) as a percentage of the LONGEST_DELAY.
@@ -196,7 +186,7 @@ public class EnvironmentView extends JFrame
     {
         delay = (int) ((100.0 - speedPercentage) * LONGEST_DELAY / 100);
     }
-    
+
     /**
      * Provide stepping of the animation.
      */
@@ -254,7 +244,7 @@ public class EnvironmentView extends JFrame
         public Dimension getPreferredSize()
         {
             return new Dimension(gridWidth * GRID_VIEW_SCALING_FACTOR,
-                                 gridHeight * GRID_VIEW_SCALING_FACTOR);
+                    gridHeight * GRID_VIEW_SCALING_FACTOR);
         }
 
         /**
@@ -278,7 +268,7 @@ public class EnvironmentView extends JFrame
                 }
             }
         }
-        
+
         /**
          * Paint on grid location on this field in a given color.
          */
