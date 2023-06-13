@@ -159,7 +159,7 @@ public class EnvironmentView extends JFrame {
         });
 
         //neues Fenster
-        items[8].addActionListener(e -> {
+        items[10].addActionListener(e -> {
             Environment clone = new Environment();
         });
 
