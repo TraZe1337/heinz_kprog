@@ -2,6 +2,8 @@ package GameOfLife;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class EnvironmentView extends JFrame {
 
@@ -80,11 +82,13 @@ public class EnvironmentView extends JFrame {
         this.env = env;
         this.running = false;
         setDelay(50);
-        setupControls();
+
         setupGrid(rows, cols);
+        setupControls();
         pack();
         setVisible(true);
     }
+
 
     /**
      * Setup a new environment of the given size.
@@ -180,6 +184,7 @@ public class EnvironmentView extends JFrame {
             env.set();
             showCells();
         });
+
 
         // More Speed
         items[6].addActionListener(e -> {
@@ -337,6 +342,12 @@ public class EnvironmentView extends JFrame {
         items[36].addActionListener(e -> {
             env.setCurrentColorForDead(Color.pink);
             showCells();
+        });
+        // Mouse click on a cell.
+        view.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+                System.out.println("working");
+            }
         });
 
     }
