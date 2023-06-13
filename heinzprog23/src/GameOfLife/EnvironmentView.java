@@ -368,11 +368,11 @@ public class EnvironmentView extends JFrame {
      * Provide stepping of the animation.
      */
     private class Runner extends SwingWorker<Boolean, Void> {
-        @Override
         /**
          * Repeatedly single-step the environment as long
          * as the animation is running.
          */
+        @Override
         public Boolean doInBackground() {
             while (running) {
                 env.step();

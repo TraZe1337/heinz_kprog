@@ -37,9 +37,7 @@ public class Cell{
     }
 
     /**
-     * Determine this cell's next state, based on the
-     * state of its neighbors.
-     * This is an implementation of the rules for Brian's Brain.
+     * Method to get the next State.
      *
      * @return The next state.
      */

@@ -6,12 +6,6 @@ import java.awt.event.ActionListener;
 import java.security.SecureRandom;
 import java.util.*;
 
-/**
- * Maintain the environment for a 2D cellular automaton.
- *
- * @author David J. Barnes
- * @version 2016.02.29
- */
 public class Environment {
     // Default size for the environment.
     private static final int DEFAULT_ROWS = 50;
