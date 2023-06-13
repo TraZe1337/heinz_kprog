@@ -98,7 +98,7 @@ public class EnvironmentView extends JFrame {
 
     private void setupMenu() {
         for (int i = 0; i < items.length; i++) {
-            menus[(i < 8) ? 0 : (i < 10) ? 1 : (i < 11) ? 2 : (i < 19) ? 3 : (i < 28) ? 4 : 5].add(items[i]); // if Teil -> (i<4), ? -> true Teil, : -> false Teil //wo ist der button
+            menus[(i < 8) ? 0 : (i < 10) ? 1 : (i < 11) ? 2 : (i < 19) ? 3 : (i < 30) ? 4 : 5].add(items[i]); // if Teil -> (i<4), ? -> true Teil, : -> false Teil //wo ist der button
         }
         JMenuBar mb = new JMenuBar();
         for (int i = 0; i < menus.length; i++) mb.add(menus[i]);
