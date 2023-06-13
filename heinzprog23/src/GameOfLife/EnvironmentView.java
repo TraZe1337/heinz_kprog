@@ -354,7 +354,11 @@ public class EnvironmentView extends JFrame {
                 int x = e.getX() / view.xScale;
                 int y = e.getY() / view.yScale;
 
-                env.setCellState(y,x,0);
+                Cell[][] cells = env.getCells();
+                switch (cells[y][x].getState()) {
+                    case 0 -> cells[y][x].setState(1);
+                    case 1 -> cells[y][x].setState(0);
+                }
 
                 showCells();
             }
