@@ -7,7 +7,6 @@ import java.awt.event.MouseEvent;
 
 public class EnvironmentView extends JFrame {
 
-
     public static void main(String[] args) {
         Environment environment = new Environment();
         //TODO: counter in title rein - Samil //done
@@ -344,11 +343,23 @@ public class EnvironmentView extends JFrame {
             showCells();
         });
         // Mouse click on a cell.
-        view.addMouseListener(new MouseAdapter() {
+        /*view.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
                 System.out.println("working");
             }
+        });*/
+// Mouse click on a cell.
+        view.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+                int x = e.getX() / view.xScale;
+                int y = e.getY() / view.yScale;
+
+                env.setCellState(y,x,0);
+
+                showCells();
+            }
         });
+
 
     }
 
