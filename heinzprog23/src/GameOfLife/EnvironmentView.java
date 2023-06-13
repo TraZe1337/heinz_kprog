@@ -4,7 +4,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionAdapter;
 
 public class EnvironmentView extends JFrame {
@@ -28,19 +27,6 @@ public class EnvironmentView extends JFrame {
 
     boolean paint = false;
     // Colors for the different cell states.
-    private static final Color[] colors = {
-            Color.green,
-            Color.red,
-            Color.black,
-            Color.blue,
-            Color.cyan,
-            Color.magenta,
-            Color.yellow,
-            Color.white,
-            Color.gray,
-            Color.orange,
-            Color.pink,
-    };
     private static int windowcounter = 0;
     private GridView view;
     private final Environment env;
@@ -73,7 +59,7 @@ public class EnvironmentView extends JFrame {
     /**
      * Constructor for objects of class EnvironmentView
      *
-     * @param env
+     * @param env, rows, cols
      */
     public EnvironmentView(Environment env, int rows, int cols) {
         super("Game of Life");
