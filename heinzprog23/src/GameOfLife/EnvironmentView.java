@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
 
 public class EnvironmentView extends JFrame {
 
@@ -347,6 +348,14 @@ public class EnvironmentView extends JFrame {
                     case 0 -> cells[y][x].setState(1);
                     case 1 -> cells[y][x].setState(0);
                 }
+                showCells();
+            }
+        });
+        view.addMouseMotionListener(new MouseMotionAdapter() {
+            public void mouseDragged(MouseEvent e) {
+                int x = e.getX() / view.xScale;
+                int y = e.getY() / view.yScale;
+                env.setCellState(y,x,0);
                 showCells();
             }
         });
