@@ -19,7 +19,7 @@ public class EnvironmentView extends JFrame {
     private boolean running;
     private int delay;
 
-    private JMenu[] menus = {new JMenu("Modus"), new JMenu("Geschwindigkeit"), new JMenu("Fenster"), new JMenu("Figuren"), new JMenu("Alive"), new JMenu("Dead")};
+    private JMenu[] menus = {new JMenu("Modus"), new JMenu("Geschwindigkeit"), new JMenu("Fenster"), new JMenu("Figuren"), new JMenu("Farbe ändern")};
     private JMenuItem[] items = {
             new JMenuItem("Laufen"), new JMenuItem("Pause"),
             new JMenuItem("Reset"), new JMenuItem("Random"),
@@ -84,13 +84,47 @@ public class EnvironmentView extends JFrame {
 
     private void setupMenu() {
         for (int i = 0; i < items.length; i++) {
-            menus[(i < 8) ? 0 : (i < 10) ? 1 : (i < 11) ? 2 : (i < 19) ? 3 : (i < 30) ? 4 : 5].add(items[i]); // if Teil -> (i<4), ? -> true Teil, : -> false Teil //wo ist der button
+            menus[(i < 8) ? 0 : (i < 10) ? 1 : (i < 11) ? 2 : (i < 19) ? 3 : (i < 30) ? 4 : 4].add(items[i]); // if Teil -> (i<4), ? -> true Teil, : -> false Teil
         }
         JMenuBar mb = new JMenuBar();
         for (int i = 0; i < menus.length; i++) mb.add(menus[i]);
         setJMenuBar(mb);
         Container cp = getContentPane();
         cp.setLayout(new FlowLayout());
+
+        JMenu aliveSubMenu = new JMenu("Alive");
+        JMenu deadSubMenu = new JMenu("Dead");
+
+        // Add color options to the "Alive" submenu
+        aliveSubMenu.add(items[19]);  // Red
+        aliveSubMenu.add(items[20]);  // Green
+        aliveSubMenu.add(items[21]);  // Black
+        aliveSubMenu.add(items[22]);  // Blue
+        aliveSubMenu.add(items[23]);  // Cyan
+        aliveSubMenu.add(items[24]);  // Magenta
+        aliveSubMenu.add(items[25]);  // Yellow
+        aliveSubMenu.add(items[26]);  // White
+        aliveSubMenu.add(items[27]);  // Gray
+        aliveSubMenu.add(items[28]);  // Orange
+        aliveSubMenu.add(items[29]);  // Pink
+
+        // Add color options to the "Dead" submenu
+        deadSubMenu.add(items[30]);  // Red
+        deadSubMenu.add(items[31]);  // Green
+        deadSubMenu.add(items[32]);  // Black
+        deadSubMenu.add(items[33]);  // Blue
+        deadSubMenu.add(items[34]);  // Cyan
+        deadSubMenu.add(items[35]);  // Magenta
+        deadSubMenu.add(items[36]);  // Yellow
+        deadSubMenu.add(items[37]);  // White
+        deadSubMenu.add(items[38]);  // Gray
+        deadSubMenu.add(items[39]);  // Orange
+        deadSubMenu.add(items[40]);  // Pink
+
+        // Add the submenus to the "Color" menu
+        menus[4].add(aliveSubMenu);
+        menus[4].add(deadSubMenu);
+
     }
 
     /**
@@ -105,6 +139,7 @@ public class EnvironmentView extends JFrame {
         for (int row = 0; row < cells.length; row++) {
             Cell[] cellRow = cells[row];
             int numCols = cellRow.length;
+
             for (int col = 0; col < numCols; col++) {
                 cellRow[col].setCurrentColor(env.getCurrentColorForDead(), env.getCurrentColorForAliveCells());
                 view.drawMark(col, row, cellRow[col].getCurrentColor());
