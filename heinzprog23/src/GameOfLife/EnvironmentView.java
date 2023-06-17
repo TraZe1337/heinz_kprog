@@ -30,7 +30,7 @@ public class EnvironmentView extends JFrame {
             new JMenuItem("Segler1"), new JMenuItem("Segler2"),
             new JMenuItem("Segler3"),
             new JMenuItem("Danke für Ihre Aufmerksamkeit"),//14
-            new JMenuItem("Smiley"),
+            new JMenuItem("Smiley"),new JMenuItem("Blume"),new JMenuItem("HI"),
             new JMenuItem("Rot"), // 15
             new JMenuItem("Grün"), new JMenuItem("Schwarz"), // 16 / 17
             new JMenuItem("Blau"), new JMenuItem("Cyan"),   //  18/ 19
@@ -84,7 +84,7 @@ public class EnvironmentView extends JFrame {
 
     private void setupMenu() {
         for (int i = 0; i < items.length; i++) {
-            menus[(i < 8) ? 0 : (i < 12) ? 1 : (i < 13) ? 2 : (i < 21) ? 3 : (i < 40) ? 4 : 4].add(items[i]); // if Teil -> (i<4), ? -> true Teil, : -> false Teil
+            menus[(i < 8) ? 0 : (i < 12) ? 1 : (i < 13) ? 2 : (i < 23) ? 3 : (i < 40) ? 4 : 4].add(items[i]); // if Teil -> (i<4), ? -> true Teil, : -> false Teil
         }
         JMenuBar mb = new JMenuBar();
         for (int i = 0; i < menus.length; i++) mb.add(menus[i]);
@@ -98,11 +98,11 @@ public class EnvironmentView extends JFrame {
 
         //add color to submenu
         for (int i = 0; i <= 10; i++) {
-            alive_color.add(items[i+21]);
+            alive_color.add(items[i+23]);
 
         }
         for (int i = 0; i <= 10; i++) {
-            dead_color.add(items[i+32]);
+            dead_color.add(items[i+34]);
 
         }
         menus[4].add(alive_color);
@@ -239,136 +239,146 @@ public class EnvironmentView extends JFrame {
             env.Danke2();
             showCells();
         });
-
-//Farbe: rot
+        //Figur Blume
         items[21].addActionListener(e -> {
+            env.Blume();
+            showCells();
+        });
+
+        // Figur HI
+        items[22].addActionListener(e -> {
+            env.HI();
+            showCells();
+        });
+//Farbe: rot
+        items[23].addActionListener(e -> {
             env.setCurrentColorForAliveCells(Color.red);
             showCells();
         });
 
 //Farbe: grün
-        items[22].addActionListener(e -> {
+        items[24].addActionListener(e -> {
             env.setCurrentColorForAliveCells(Color.green);
             showCells();
         });
 
 //Farbe: Schwarz
-        items[23].addActionListener(e -> {
+        items[25].addActionListener(e -> {
             env.setCurrentColorForAliveCells(Color.black);
             showCells();
         });
 
 //Farbe: blau
-        items[24].addActionListener(e -> {
+        items[26].addActionListener(e -> {
             env.setCurrentColorForAliveCells(Color.blue);
             showCells();
         });
 
 //Farbe: cyan
-        items[25].addActionListener(e -> {
+        items[27].addActionListener(e -> {
             env.setCurrentColorForAliveCells(Color.cyan);
             showCells();
         });
 
 //Farbe: magenta
-        items[26].addActionListener(e -> {
+        items[28].addActionListener(e -> {
             env.setCurrentColorForAliveCells(Color.magenta);
             showCells();
         });
 
 //Farbe: gelb
-        items[27].addActionListener(e -> {
+        items[29].addActionListener(e -> {
             env.setCurrentColorForAliveCells(Color.yellow);
             showCells();
         });
 
 //Farbe: weiß
-        items[28].addActionListener(e -> {
+        items[30].addActionListener(e -> {
             env.setCurrentColorForAliveCells(Color.white);
             showCells();
         });
 
 //Farbe: grau
-        items[29].addActionListener(e -> {
+        items[31].addActionListener(e -> {
             env.setCurrentColorForAliveCells(Color.gray);
             showCells();
         });
 
 //Farbe: orange
-        items[30].addActionListener(e -> {
+        items[32].addActionListener(e -> {
             env.setCurrentColorForAliveCells(Color.orange);
             showCells();
         });
 
 //Farbe: pink
-        items[31].addActionListener(e -> {
+        items[33].addActionListener(e -> {
             env.setCurrentColorForAliveCells(Color.pink);
             showCells();
         });
 
 
 //Farbe: rot
-        items[32].addActionListener(e -> {
+        items[34].addActionListener(e -> {
             env.setCurrentColorForDead(Color.red);
             showCells();
         });
 
 //Farbe: grün
-        items[33].addActionListener(e -> {
+        items[35].addActionListener(e -> {
             env.setCurrentColorForDead(Color.green);
             showCells();
         });
 
 //Farbe: schwarz
-        items[34].addActionListener(e -> {
+        items[36].addActionListener(e -> {
             env.setCurrentColorForDead(Color.black);
             showCells();
         });
 
 //Farbe: blau
-        items[35].addActionListener(e -> {
+        items[37].addActionListener(e -> {
             env.setCurrentColorForDead(Color.blue);
             showCells();
         });
 
 //Farbe: cyan
-        items[36].addActionListener(e -> {
+        items[38].addActionListener(e -> {
             env.setCurrentColorForDead(Color.cyan);
             showCells();
         });
 
 //Farbe: magenta
-        items[37].addActionListener(e -> {
+        items[39].addActionListener(e -> {
             env.setCurrentColorForDead(Color.magenta);
             showCells();
         });
 
 //Farbe: gelb
-        items[38].addActionListener(e -> {
+        items[40].addActionListener(e -> {
             env.setCurrentColorForDead(Color.yellow);
             showCells();
         });
 
 //Farbe: weiß
-        items[39].addActionListener(e -> {
+        items[41].addActionListener(e -> {
             env.setCurrentColorForDead(Color.white);
             showCells();
         });
 
 //Farbe: grau
-        items[40].addActionListener(e -> {
+        items[42].addActionListener(e -> {
             env.setCurrentColorForDead(Color.gray);
             showCells();
         });
 
 //Farbe: orange
-        items[41].addActionListener(e -> {
+        items[43].addActionListener(e -> {
             env.setCurrentColorForDead(Color.orange);
             showCells();
         });
 
 //Farbe: pink
-        items[42].addActionListener(e -> {
+        items[44].addActionListener(e -> {
             env.setCurrentColorForDead(Color.pink);
             showCells();
         });
@@ -397,7 +407,10 @@ public class EnvironmentView extends JFrame {
                 switch (cells[y][x].getState()) {
                     case 0 -> cells[y][x].setState(1);
                     case 1 -> cells[y][x].setState(0);
+
                 }
+                System.out.println( "setCellState("+y+" + 1, "+x+" + 2, Cell.ALIVE);");
+
                 showCells();
             }
         });
