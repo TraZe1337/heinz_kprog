@@ -92,38 +92,35 @@ public class EnvironmentView extends JFrame {
         Container cp = getContentPane();
         cp.setLayout(new FlowLayout());
 
-        JMenu aliveSubMenu = new JMenu("Alive");
-        JMenu deadSubMenu = new JMenu("Dead");
+        JMenu alive_color = new JMenu("Alive");
+        JMenu dead_color = new JMenu("Dead");
 
-        // Add color options to the "Alive" submenu
-        aliveSubMenu.add(items[19]);  // Red
-        aliveSubMenu.add(items[20]);  // Green
-        aliveSubMenu.add(items[21]);  // Black
-        aliveSubMenu.add(items[22]);  // Blue
-        aliveSubMenu.add(items[23]);  // Cyan
-        aliveSubMenu.add(items[24]);  // Magenta
-        aliveSubMenu.add(items[25]);  // Yellow
-        aliveSubMenu.add(items[26]);  // White
-        aliveSubMenu.add(items[27]);  // Gray
-        aliveSubMenu.add(items[28]);  // Orange
-        aliveSubMenu.add(items[29]);  // Pink
+        alive_color.add(items[19]);  // Red
+        alive_color.add(items[20]);  // Green
+        alive_color.add(items[21]);  // Black
+        alive_color.add(items[22]);  // Blue
+        alive_color.add(items[23]);  // Cyan
+        alive_color.add(items[24]);  // Magenta
+        alive_color.add(items[25]);  // Yellow
+        alive_color.add(items[26]);  // White
+        alive_color.add(items[27]);  // Gray
+        alive_color.add(items[28]);  // Orange
+        alive_color.add(items[29]);  // Pink
 
-        // Add color options to the "Dead" submenu
-        deadSubMenu.add(items[30]);  // Red
-        deadSubMenu.add(items[31]);  // Green
-        deadSubMenu.add(items[32]);  // Black
-        deadSubMenu.add(items[33]);  // Blue
-        deadSubMenu.add(items[34]);  // Cyan
-        deadSubMenu.add(items[35]);  // Magenta
-        deadSubMenu.add(items[36]);  // Yellow
-        deadSubMenu.add(items[37]);  // White
-        deadSubMenu.add(items[38]);  // Gray
-        deadSubMenu.add(items[39]);  // Orange
-        deadSubMenu.add(items[40]);  // Pink
+        dead_color.add(items[30]);  // Red
+        dead_color.add(items[31]);  // Green
+        dead_color.add(items[32]);  // Black
+        dead_color.add(items[33]);  // Blue
+        dead_color.add(items[34]);  // Cyan
+        dead_color.add(items[35]);  // Magenta
+        dead_color.add(items[36]);  // Yellow
+        dead_color.add(items[37]);  // White
+        dead_color.add(items[38]);  // Gray
+        dead_color.add(items[39]);  // Orange
+        dead_color.add(items[40]);  // Pink
 
-        // Add the submenus to the "Color" menu
-        menus[4].add(aliveSubMenu);
-        menus[4].add(deadSubMenu);
+        menus[4].add(alive_color); //submenu
+        menus[4].add(dead_color);
 
     }
 
