@@ -24,7 +24,7 @@ public class EnvironmentView extends JFrame {
             new JMenuItem("Laufen"), new JMenuItem("Pause"),
             new JMenuItem("Reset"), new JMenuItem("Random"),
             new JMenuItem("Step"), new JMenuItem("Setzen"), new JMenuItem("Malen"), new JMenuItem("Malen beenden"),
-            new JMenuItem("100ms"),new JMenuItem("200ms"), new JMenuItem("300ms"),new JMenuItem("Fast as fuck boiiii"),
+            new JMenuItem("1"),new JMenuItem("2"), new JMenuItem("3"),new JMenuItem("Fast as fuck boiiii"),
             new JMenuItem("Clone"), new JMenuItem("Gleiter"),
             new JMenuItem("Tümmler"), new JMenuItem("Oktagon"),
             new JMenuItem("Segler1"), new JMenuItem("Segler2"),
@@ -173,6 +173,7 @@ public class EnvironmentView extends JFrame {
         items[6].addActionListener(e ->{
             paint=true;
         });
+
         items[7].addActionListener(e ->{
             paint=false;
         });
@@ -190,6 +191,10 @@ public class EnvironmentView extends JFrame {
         });
         items[11].addActionListener(e -> {
             delay = 100;
+        });
+        items[12].addActionListener(e -> {
+            env.gleiter();
+            showCells();
         });
 
         //Figur: Gleiter
