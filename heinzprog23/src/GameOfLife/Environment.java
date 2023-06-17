@@ -148,8 +148,26 @@ public class Environment {
         setCellState(13 + 1, 35 + 2, Cell.ALIVE);
         setCellState(14 + 1, 35 + 2, Cell.ALIVE);
         setCellState(16 + 1, 33 + 2, Cell.ALIVE);
-
-
+        setCellState(21 + 1, 30 + 2, Cell.ALIVE);
+        setCellState(22 + 1, 30 + 2, Cell.ALIVE);
+        setCellState(22 + 1, 31 + 2, Cell.ALIVE);
+        setCellState(21 + 1, 31 + 2, Cell.ALIVE);
+        setCellState(24 + 1, 30 + 2, Cell.ALIVE);
+        setCellState(25 + 1, 30 + 2, Cell.ALIVE);
+        setCellState(25 + 1, 31 + 2, Cell.ALIVE);
+        setCellState(24 + 1, 31 + 2, Cell.ALIVE);
+        setCellState(27 + 1, 30 + 2, Cell.ALIVE);
+        setCellState(28 + 1, 30 + 2, Cell.ALIVE);
+        setCellState(28 + 1, 31 + 2, Cell.ALIVE);
+        setCellState(27 + 1, 31 + 2, Cell.ALIVE);
+        setCellState(30 + 1, 30 + 2, Cell.ALIVE);
+        setCellState(31 + 1, 30 + 2, Cell.ALIVE);
+        setCellState(31 + 1, 31 + 2, Cell.ALIVE);
+        setCellState(30 + 1, 31 + 2, Cell.ALIVE);
+        setCellState(33 + 1, 30 + 2, Cell.ALIVE);
+        setCellState(34 + 1, 30 + 2, Cell.ALIVE);
+        setCellState(34 + 1, 31 + 2, Cell.ALIVE);
+        setCellState(33 + 1, 31 + 2, Cell.ALIVE);
     }
    public void gleiter() {
         setCellState(0, 1, Cell.ALIVE);
