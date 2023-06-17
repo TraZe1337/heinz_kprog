@@ -24,7 +24,7 @@ public class EnvironmentView extends JFrame {
             new JMenuItem("Laufen"), new JMenuItem("Pause"),
             new JMenuItem("Reset"), new JMenuItem("Random"),
             new JMenuItem("Step"), new JMenuItem("Setzen"), new JMenuItem("Malen"), new JMenuItem("Malen beenden"),
-            new JMenuItem("Schneller"), new JMenuItem("Langsamer"),
+            new JMenuItem("100ms"),new JMenuItem("200ms"), new JMenuItem("300ms"),new JMenuItem("Fast as fuck boiiii"),
             new JMenuItem("Clone"), new JMenuItem("Gleiter"),
             new JMenuItem("Tümmler"), new JMenuItem("Oktagon"),
             new JMenuItem("Segler1"), new JMenuItem("Segler2"),
@@ -84,7 +84,7 @@ public class EnvironmentView extends JFrame {
 
     private void setupMenu() {
         for (int i = 0; i < items.length; i++) {
-            menus[(i < 8) ? 0 : (i < 10) ? 1 : (i < 11) ? 2 : (i < 19) ? 3 : (i < 30) ? 4 : 4].add(items[i]); // if Teil -> (i<4), ? -> true Teil, : -> false Teil
+            menus[(i < 8) ? 0 : (i < 12) ? 1 : (i < 13) ? 2 : (i < 21) ? 3 : (i < 40) ? 4 : 4].add(items[i]); // if Teil -> (i<4), ? -> true Teil, : -> false Teil
         }
         JMenuBar mb = new JMenuBar();
         for (int i = 0; i < menus.length; i++) mb.add(menus[i]);
@@ -95,31 +95,17 @@ public class EnvironmentView extends JFrame {
         JMenu alive_color = new JMenu("Alive");
         JMenu dead_color = new JMenu("Dead");
 
-        alive_color.add(items[19]);  // Red
-        alive_color.add(items[20]);  // Green
-        alive_color.add(items[21]);  // Black
-        alive_color.add(items[22]);  // Blue
-        alive_color.add(items[23]);  // Cyan
-        alive_color.add(items[24]);  // Magenta
-        alive_color.add(items[25]);  // Yellow
-        alive_color.add(items[26]);  // White
-        alive_color.add(items[27]);  // Gray
-        alive_color.add(items[28]);  // Orange
-        alive_color.add(items[29]);  // Pink
 
-        dead_color.add(items[30]);  // Red
-        dead_color.add(items[31]);  // Green
-        dead_color.add(items[32]);  // Black
-        dead_color.add(items[33]);  // Blue
-        dead_color.add(items[34]);  // Cyan
-        dead_color.add(items[35]);  // Magenta
-        dead_color.add(items[36]);  // Yellow
-        dead_color.add(items[37]);  // White
-        dead_color.add(items[38]);  // Gray
-        dead_color.add(items[39]);  // Orange
-        dead_color.add(items[40]);  // Pink
+        //add color to submenu
+        for (int i = 0; i <= 10; i++) {
+            alive_color.add(items[i+21]);
 
-        menus[4].add(alive_color); //submenu
+        }
+        for (int i = 0; i <= 10; i++) {
+            dead_color.add(items[i+32]);
+
+        }
+        menus[4].add(alive_color);
         menus[4].add(dead_color);
 
     }
@@ -160,19 +146,6 @@ public class EnvironmentView extends JFrame {
             }
         });
 
-        // Single stepping.
-        items[4].addActionListener(e -> {
-            running = false;
-            env.step();
-            showCells();
-        });
-
-        //neues Fenster
-        items[10].addActionListener(e -> {
-            Environment clone = new Environment();
-        });
-
-
         // Pause the animation.
         items[1].addActionListener(e -> running = false);
 
@@ -197,182 +170,212 @@ public class EnvironmentView extends JFrame {
             showCells();
         });
 
-
-        // More Speed
-        items[8].addActionListener(e -> {
-            delay -= 100;
-        });
-
-        //Less Speed
-        items[9].addActionListener(e -> {
-            delay += 100;
-        });
-
-        //Figur: Gleiter
-        items[11].addActionListener(e -> {
-            env.gleiter();
-            showCells();
-        });
-
-        //Figur: Tümmler
-        items[12].addActionListener(e -> {
-            env.tuemmler();
-            showCells();
-        });
-
-        //Figur: Oktagon
-        items[13].addActionListener(e -> {
-            env.oktagon();
-            showCells();
-        });
-
-        //Figur: Segler1
-        items[14].addActionListener(e -> {
-            env.segler1();
-            showCells();
-        });
-
-        //Figur: Segler2
-        items[15].addActionListener(e -> {
-            env.segler2();
-            showCells();
-        });
-
-        //Figur: Segler3
-        items[16].addActionListener(e -> {
-            env.segler3();
-            showCells();
-        });
-        //Figur Danke Aufmerksammkeit
-
-        items[17].addActionListener(e -> {
-            env.Danke();
-            showCells();
-        });
-        //Figur Danke2
-
-        items[18].addActionListener(e -> {
-            env.Danke2();
-            showCells();
-        });
-
-        //Farbe: rot
-        items[19].addActionListener(e -> {
-            env.setCurrentColorForAliveCells(Color.red);
-            showCells();
-        });
-        //Farbe: grün
-        items[20].addActionListener(e -> {
-            env.setCurrentColorForAliveCells(Color.green);
-            showCells();
-        });
-        //Farbe: Schwarz
-        items[21].addActionListener(e -> {
-            env.setCurrentColorForAliveCells(Color.black);
-            showCells();
-        });
-
-        //Farbe: blau
-        items[22].addActionListener(e -> {
-            env.setCurrentColorForAliveCells(Color.blue);
-            showCells();
-        });
-        //Farbe: cyan
-        items[23].addActionListener(e -> {
-            env.setCurrentColorForAliveCells(Color.cyan);
-            showCells();
-        });
-        //Farbe: magenta
-        items[24].addActionListener(e -> {
-            env.setCurrentColorForAliveCells(Color.magenta);
-            showCells();
-        });
-        //Farbe: gelb
-        items[25].addActionListener(e -> {
-            env.setCurrentColorForAliveCells(Color.yellow);
-            showCells();
-        });
-        //Farbe: weiß
-        items[26].addActionListener(e -> {
-            env.setCurrentColorForAliveCells(Color.white);
-            showCells();
-        });
-        //Farbe: grau
-        items[27].addActionListener(e -> {
-            env.setCurrentColorForAliveCells(Color.gray);
-            showCells();
-        });
-        //Farbe: orange
-        items[28].addActionListener(e -> {
-            env.setCurrentColorForAliveCells(Color.orange);
-            showCells();
-        });
-        //Farbe: pink
-        items[29].addActionListener(e -> {
-            env.setCurrentColorForAliveCells(Color.pink);
-            showCells();
-        });
-
-
-        //Farbe: rot
-        items[30].addActionListener(e -> {
-            env.setCurrentColorForDead(Color.red);
-            showCells();
-        });
-        //Farbe: grün
-        items[31].addActionListener(e -> {
-            env.setCurrentColorForDead(Color.green);
-            showCells();
-        });
-        //Farbe: schwarz
-        items[32].addActionListener(e -> {
-            env.setCurrentColorForDead(Color.black);
-            showCells();
-        });
-        //Farbe: blau
-        items[33].addActionListener(e -> {
-            env.setCurrentColorForDead(Color.blue);
-            showCells();
-        });
-        //Farbe: cyan
-        items[34].addActionListener(e -> {
-            env.setCurrentColorForAliveCells(Color.cyan);
-            showCells();
-        });
-        //Farbe: magenta
-        items[35].addActionListener(e -> {
-            env.setCurrentColorForDead(Color.magenta);
-            showCells();
-        });//Farbe: gelb
-        items[36].addActionListener(e -> {
-            env.setCurrentColorForDead(Color.yellow);
-            showCells();
-        });//Farbe: weiß
-        items[37].addActionListener(e -> {
-            env.setCurrentColorForDead(Color.white);
-            showCells();
-        });//Farbe: grau
-        items[38].addActionListener(e -> {
-            env.setCurrentColorForDead(Color.gray);
-            showCells();
-        });//Farbe: orange
-        items[39].addActionListener(e -> {
-            env.setCurrentColorForDead(Color.orange);
-            showCells();
-        });
-        //Farbe: pink
-        items[40].addActionListener(e -> {
-            env.setCurrentColorForDead(Color.pink);
-            showCells();
-        });
-
-
         items[6].addActionListener(e ->{
             paint=true;
         });
         items[7].addActionListener(e ->{
             paint=false;
         });
+
+        //  Speed
+        items[8].addActionListener(e -> {
+            delay = 500;
+        });
+
+        items[9].addActionListener(e -> {
+            delay = 300;
+        });
+        items[10].addActionListener(e -> {
+            delay = 200;
+        });
+        items[11].addActionListener(e -> {
+            delay = 100;
+        });
+
+        //Figur: Gleiter
+        items[13].addActionListener(e -> {
+            env.gleiter();
+            showCells();
+        });
+
+//Figur: Tümmler
+        items[14].addActionListener(e -> {
+            env.tuemmler();
+            showCells();
+        });
+
+//Figur: Oktagon
+        items[15].addActionListener(e -> {
+            env.oktagon();
+            showCells();
+        });
+
+//Figur: Segler1
+        items[16].addActionListener(e -> {
+            env.segler1();
+            showCells();
+        });
+
+//Figur: Segler2
+        items[17].addActionListener(e -> {
+            env.segler2();
+            showCells();
+        });
+
+//Figur: Segler3
+        items[18].addActionListener(e -> {
+            env.segler3();
+            showCells();
+        });
+
+//Figur Danke Aufmerksamkeit
+        items[19].addActionListener(e -> {
+            env.Danke();
+            showCells();
+        });
+
+//Figur Danke2
+        items[20].addActionListener(e -> {
+            env.Danke2();
+            showCells();
+        });
+
+//Farbe: rot
+        items[21].addActionListener(e -> {
+            env.setCurrentColorForAliveCells(Color.red);
+            showCells();
+        });
+
+//Farbe: grün
+        items[22].addActionListener(e -> {
+            env.setCurrentColorForAliveCells(Color.green);
+            showCells();
+        });
+
+//Farbe: Schwarz
+        items[23].addActionListener(e -> {
+            env.setCurrentColorForAliveCells(Color.black);
+            showCells();
+        });
+
+//Farbe: blau
+        items[24].addActionListener(e -> {
+            env.setCurrentColorForAliveCells(Color.blue);
+            showCells();
+        });
+
+//Farbe: cyan
+        items[25].addActionListener(e -> {
+            env.setCurrentColorForAliveCells(Color.cyan);
+            showCells();
+        });
+
+//Farbe: magenta
+        items[26].addActionListener(e -> {
+            env.setCurrentColorForAliveCells(Color.magenta);
+            showCells();
+        });
+
+//Farbe: gelb
+        items[27].addActionListener(e -> {
+            env.setCurrentColorForAliveCells(Color.yellow);
+            showCells();
+        });
+
+//Farbe: weiß
+        items[28].addActionListener(e -> {
+            env.setCurrentColorForAliveCells(Color.white);
+            showCells();
+        });
+
+//Farbe: grau
+        items[29].addActionListener(e -> {
+            env.setCurrentColorForAliveCells(Color.gray);
+            showCells();
+        });
+
+//Farbe: orange
+        items[30].addActionListener(e -> {
+            env.setCurrentColorForAliveCells(Color.orange);
+            showCells();
+        });
+
+//Farbe: pink
+        items[31].addActionListener(e -> {
+            env.setCurrentColorForAliveCells(Color.pink);
+            showCells();
+        });
+
+
+//Farbe: rot
+        items[32].addActionListener(e -> {
+            env.setCurrentColorForDead(Color.red);
+            showCells();
+        });
+
+//Farbe: grün
+        items[33].addActionListener(e -> {
+            env.setCurrentColorForDead(Color.green);
+            showCells();
+        });
+
+//Farbe: schwarz
+        items[34].addActionListener(e -> {
+            env.setCurrentColorForDead(Color.black);
+            showCells();
+        });
+
+//Farbe: blau
+        items[35].addActionListener(e -> {
+            env.setCurrentColorForDead(Color.blue);
+            showCells();
+        });
+
+//Farbe: cyan
+        items[36].addActionListener(e -> {
+            env.setCurrentColorForDead(Color.cyan);
+            showCells();
+        });
+
+//Farbe: magenta
+        items[37].addActionListener(e -> {
+            env.setCurrentColorForDead(Color.magenta);
+            showCells();
+        });
+
+//Farbe: gelb
+        items[38].addActionListener(e -> {
+            env.setCurrentColorForDead(Color.yellow);
+            showCells();
+        });
+
+//Farbe: weiß
+        items[39].addActionListener(e -> {
+            env.setCurrentColorForDead(Color.white);
+            showCells();
+        });
+
+//Farbe: grau
+        items[40].addActionListener(e -> {
+            env.setCurrentColorForDead(Color.gray);
+            showCells();
+        });
+
+//Farbe: orange
+        items[41].addActionListener(e -> {
+            env.setCurrentColorForDead(Color.orange);
+            showCells();
+        });
+
+//Farbe: pink
+        items[42].addActionListener(e -> {
+            env.setCurrentColorForDead(Color.pink);
+            showCells();
+        });
+
+
+
+
 
         view.addMouseMotionListener(new MouseMotionAdapter() {
             public void mouseDragged(MouseEvent e) {
