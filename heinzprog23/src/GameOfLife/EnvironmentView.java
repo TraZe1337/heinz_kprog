@@ -192,9 +192,9 @@ public class EnvironmentView extends JFrame {
         items[11].addActionListener(e -> {
             delay = 100;
         });
+        //neues Fenster
         items[12].addActionListener(e -> {
-            env.gleiter();
-            showCells();
+            Environment clone = new Environment();
         });
 
         //Figur: Gleiter
