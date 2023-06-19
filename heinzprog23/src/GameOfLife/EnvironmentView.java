@@ -163,6 +163,12 @@ public class EnvironmentView extends JFrame {
             showCells();
         });
 
+        items[4].addActionListener(e ->{
+            running = false;
+            env.step();
+            showCells();
+        });
+
         // Switch Cells environment.
         items[5].addActionListener(e -> {
             running = false;

@@ -10,7 +10,7 @@ public class run {
         //TODO: Run -> Laufen - Stefan // done
         //TODO: Zellen Tot zu lebendig machen mit Klick - Stefan // done
         //TODO: Modus Setzen: Zellenstatus switchen - Stefan // done
-        //TODO: Modus Malen: sollen alle Zellen bei Überstreichen mit der Maus lebendig werden. - Filippo
+        //TODO: Modus Malen: sollen alle Zellen bei Überstreichen mit der Maus lebendig werden. - Filippo // done
         //TODO: Pop-up: Farben ändern - Tarik // done
         //TODO: Muster (Gleiter, ...) - Stefan // done
     }
