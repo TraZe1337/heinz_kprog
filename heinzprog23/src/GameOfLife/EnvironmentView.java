@@ -2,9 +2,7 @@ package GameOfLife;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseMotionAdapter;
+import java.awt.event.*;
 
 public class EnvironmentView extends JFrame {
 
@@ -62,7 +60,6 @@ public class EnvironmentView extends JFrame {
         this.env = env;
         this.running = false;
         setDelay(50);
-
         setupGrid(rows, cols);
         setupControls();
         pack();
@@ -396,7 +393,6 @@ public class EnvironmentView extends JFrame {
                     int y = e.getY() / view.yScale;
                     env.setCellState(y,x,0);
                     showCells();
-                    System.out.println( "setCellState("+y+" + 1, "+x+" + 2, Cell.ALIVE);");
                 }
             }
         });
@@ -411,12 +407,9 @@ public class EnvironmentView extends JFrame {
                     case 1 -> cells[y][x].setState(0);
 
                 }
-                System.out.println( "setCellState("+y+" + 1, "+x+" + 2, Cell.ALIVE);");
-
                 showCells();
             }
         });
-
 
     }
 

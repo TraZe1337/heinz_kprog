@@ -1,8 +1,10 @@
 package GameOfLife;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
 import java.security.SecureRandom;
 import java.util.*;
 
@@ -177,10 +179,6 @@ public class Environment {
         setCellState(2, 2, Cell.ALIVE);
     }
 
-    public void HI() {
-
-    }
-
      public void tuemmler() {
         int numRows = cells.length;
         int numCols = cells[0].length;
@@ -327,8 +325,6 @@ public class Environment {
         setCellState(15 + 1, 40 + 2, Cell.ALIVE);
     }
     public void Danke2() {
-        int numRows = cells.length;
-        int numCols = cells[0].length;
         setCellState(27 + 1, 27 + 2, Cell.ALIVE);
         setCellState(25 + 1, 13 + 2, Cell.ALIVE);
         setCellState(24 + 1, 13 + 2, Cell.ALIVE);
@@ -650,7 +646,6 @@ public class Environment {
 
     public void segler2() {
         int numRows = cells.length;
-
         setCellState((numRows / 2), 1, Cell.ALIVE);
         setCellState((numRows / 2), 2, Cell.ALIVE);
         setCellState((numRows / 2), 3, Cell.ALIVE);
@@ -794,4 +789,5 @@ public class Environment {
             }
         }
     }
+
 }
