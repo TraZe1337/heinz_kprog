@@ -11,13 +11,11 @@ public class Cell{
     public static final int ALIVE = 0, DEAD = 1;
     // The number of possible states.
     public static final int NUM_STATES = 2;
-
+    Color currentColor = Color.GREEN;
     // The cell's state.
     private int state;
     // The cell's neighbors.
     private Cell[] neighbors;
-
-    Color currentColor = Color.GREEN;
 
     /**
      * Set the initial state to be DEAD.

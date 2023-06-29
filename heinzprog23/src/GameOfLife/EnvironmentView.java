@@ -8,12 +8,11 @@ public class EnvironmentView extends JFrame {
 
     // The longest delay for the animation, in milliseconds.
     private static final int LONGEST_DELAY = 1000;
-
-    boolean paint = false;
     // Colors for the different cell states.
     private static int windowcounter = 0;
-    private GridView view;
     private final Environment env;
+    boolean paint = false;
+    private GridView view;
     private boolean running;
     private int delay;
 
@@ -55,7 +54,7 @@ public class EnvironmentView extends JFrame {
         windowcounter++;
         setTitle("Game of Life - Fenster " + windowcounter);
         setupMenu();
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setDefaultCloseOperation(HIDE_ON_CLOSE);
         setLocation(20, 20);
         this.env = env;
         this.running = false;
